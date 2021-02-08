@@ -1,4 +1,5 @@
 
+import java.awt.GridLayout;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,6 +18,7 @@ public class Finestra extends JFrame implements ActionListener {
 	private Array a;
 	
 	public void initComp() {
+		this.setLayout(new GridLayout(2,2));
 		Object[][] data = {};
 		String[] nomeColonne={"Nome", "Cognome", "Classe"};
 		dmt = new DefaultTableModel(data, nomeColonne);
@@ -34,8 +36,14 @@ public class Finestra extends JFrame implements ActionListener {
 		menu.add(inserisci);
 		bar.add(menu);
 		
+		panelIm=new JPanel();
+		panelTab=new JPanel();
+		
+		panelTab.add(pane);
+		
 		this.add(bar);
-		this.add(pane);
+		this.add(panelIm);
+		this.add(panelTab);
 		
 	}
 	
@@ -47,7 +55,7 @@ public class Finestra extends JFrame implements ActionListener {
 	public static void main(String[] args) {
 		Finestra f = new Finestra();
 		f.setTitle("Esercizio di recupero");
-		f.setSize(400,600);
+		f.setSize(800,600);
 		f.setVisible(true);
 	}
 	public void actionPerformed(ActionEvent e) {
