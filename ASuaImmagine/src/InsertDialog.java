@@ -22,10 +22,10 @@ public class InsertDialog extends JDialog implements ActionListener{
 		inserisci=new JButton("Inserisci");
 		
 		this.add(nome);
-		this.add(cognome);
-		this.add(classe);
 		this.add(insNome);
+		this.add(cognome);
 		this.add(insCognome);
+		this.add(classe);
 		this.add(insClasse);
 		this.add(inserisci);
 		inserisci.addActionListener(this);
@@ -41,6 +41,10 @@ public class InsertDialog extends JDialog implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		if(e.getSource().equals(inserisci));{
+			Studente s=new Studente (insNome.getText(),insCognome.getText(), insClasse.getText());
+			ar.add(s);
+		}
 		
 	}
 	
