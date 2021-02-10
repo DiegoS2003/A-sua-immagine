@@ -54,6 +54,9 @@ public class Finestra extends JFrame implements ActionListener {
 		
 		panelTab.add(pane);
 		
+		label=new JLabel();
+		panelIm.add(label);
+		
 		
 		this.add(bar);
 		this.add(panelTab);
@@ -66,7 +69,7 @@ public class Finestra extends JFrame implements ActionListener {
 		int n = fileChooser.showOpenDialog(finestra);
 		if (n == JFileChooser.APPROVE_OPTION) {
 			File f = fileChooser.getSelectedFile();
-			im = new ImageIcon (f.getPath());
+			im = new ImageIcon (f.getAbsolutePath());
 		}
 	}
 	
@@ -123,9 +126,7 @@ public class Finestra extends JFrame implements ActionListener {
 		}
 		if(e.getSource().equals(inserisciImmagine)) {
 			insImmagine(this, icon);
-			label=new JLabel(icon);
-			panelIm.add(label);
-			this.add(panelIm);
+			label.setIcon(icon);
 		}
 	}
 	
